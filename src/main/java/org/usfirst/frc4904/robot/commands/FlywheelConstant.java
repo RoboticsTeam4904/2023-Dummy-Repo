@@ -17,11 +17,4 @@ public class FlywheelConstant extends MotorConstant {
   public FlywheelConstant() {
     super(RobotMap.Component.flywheelMotor, Flywheel.SHOOT_VELOCITY);
   }
-
-  @Override
-  public void end(boolean interrupted) {
-    super.end(interrupted);
-
-    LogKitten.wtf("wtf");
-  }
 }

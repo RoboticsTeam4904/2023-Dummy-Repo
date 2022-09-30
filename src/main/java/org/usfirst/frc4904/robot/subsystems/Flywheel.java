@@ -18,8 +18,9 @@ public class Flywheel extends SubsystemBase {
     public CANTalonFX shooterEncoder;
     public Motor shoterMotor;
     
-    public Shooter(Motor shooterMotor, CANTalonEncoder shooterEncoder) {
+    public Flywheel(String name, Motor shooterMotor, CANTalonEncoder shooterEncoder) {
         super();
+        setName(name);
         this.shooterMotor = shooterMotor;
         this.shooterController = shooterController;
     }
