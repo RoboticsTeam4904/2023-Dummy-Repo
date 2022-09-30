@@ -14,5 +14,5 @@ import org.usfirst.frc4904.standard.subsystems.motor.VelocitySensorMotor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Flywheel extends SubsystemBase {
-    public static final double SHOOT_VELOCITY = -1; //TODO: Set value and ball reject velocity
+    public static final double SHOOT_VELOCITY = 0.1; //TODO: Set value and ball reject velocity
 }
