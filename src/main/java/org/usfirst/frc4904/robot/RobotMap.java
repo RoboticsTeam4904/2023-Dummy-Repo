@@ -3,6 +3,8 @@ package org.usfirst.frc4904.robot;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
 import org.usfirst.frc4904.standard.custom.controllers.CustomXbox;
+import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
+import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 
 public class RobotMap {
     public static class Port {
@@ -12,6 +14,8 @@ public class RobotMap {
         }
 
         public static class CANMotor {
+            public static final int FLYWHEEL_MOTOR = -1; // TODO: set port
+
         }
 
         public static class PWM {
@@ -51,6 +55,8 @@ public class RobotMap {
     }
 
     public static class Component {
+        public static CANTalonFX flywheelTalon;
+        public static Motor flywheelMotor;
     }
 
     public static class Input {
@@ -70,5 +76,7 @@ public class RobotMap {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick);
 
+        Component.flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR);
+        Component.flywheelMotor = new Motor("ShooterMotor", true, Component.flywheelTalon);
     }
 }
