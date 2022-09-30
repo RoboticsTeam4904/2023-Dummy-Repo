@@ -10,7 +10,7 @@ public class RobotMap {
     public static class Port {
         public static class HumanInput {
             public static final int joystick = 0;
-			public static final int xboxController = 1;
+	    public static final int xboxController = 1;
         }
 
         public static class CANMotor {
