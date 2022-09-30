@@ -16,7 +16,7 @@ public class RobotMap {
         }
 
         public static class CANMotor {
-            public static final int FLYWHEEL_MOTOR = -1; // TODO: set port
+            public static final int FLYWHEEL_MOTOR = 8; // TODO: set port
 
         }
 
