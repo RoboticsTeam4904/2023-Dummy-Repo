@@ -14,8 +14,8 @@ public class FlywheelConstant extends MotorConstant {
    * @param speed  The speed to spin the shooter up to
    */
 
-  public FlywheelConstant(double speed) {
-    super(RobotMap.Component.flywheelMotor, speed);
+  public FlywheelConstant() {
+    super(RobotMap.Component.flywheelMotor, Flywheel.SHOOT_VELOCITY);
   }
 
   @Override
