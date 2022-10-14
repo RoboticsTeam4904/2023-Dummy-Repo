@@ -17,4 +17,8 @@ public class FlywheelConstant extends MotorConstant {
   public FlywheelConstant(Flywheel flywheel) {
     super(flywheel.shooterMotor, Flywheel.SHOOT_VELOCITY);
   }
+  @Override
+  public void initialize() {
+    LogKitten.wtf("command ran");
+  }
 }

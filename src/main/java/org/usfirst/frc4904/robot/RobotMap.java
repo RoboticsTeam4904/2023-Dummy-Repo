@@ -3,6 +3,7 @@ package org.usfirst.frc4904.robot;
 import edu.wpi.first.wpilibj2.command.Subsystem;
 
 import org.usfirst.frc4904.robot.subsystems.Flywheel;
+import org.usfirst.frc4904.standard.LogKitten;
 import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
 import org.usfirst.frc4904.standard.custom.controllers.CustomXbox;
 import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
