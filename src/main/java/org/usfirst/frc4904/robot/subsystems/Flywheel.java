@@ -16,12 +16,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Flywheel extends SubsystemBase {
     public static final double SHOOT_VELOCITY = 0.1; //TODO: Set value and ball reject velocity
     public CANTalonFX shooterEncoder;
-    public Motor shoterMotor;
+    public Motor shooterMotor;
     
-    public Flywheel(String name, Motor shooterMotor, CANTalonEncoder shooterEncoder) {
+    public Flywheel(String name, Motor shooterMotor, CANTalonFX shooterEncoder) {
         super();
         setName(name);
         this.shooterMotor = shooterMotor;
-        this.shooterController = shooterController;
+        this.shooterEncoder = shooterEncoder;
     }
 }

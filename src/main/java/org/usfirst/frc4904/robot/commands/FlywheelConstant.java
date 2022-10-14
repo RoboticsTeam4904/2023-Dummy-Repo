@@ -15,6 +15,6 @@ public class FlywheelConstant extends MotorConstant {
    */
 
   public FlywheelConstant(Flywheel flywheel) {
-    super(flywheel.flywheelMotor, Flywheel.SHOOT_VELOCITY);
+    super(flywheel.shooterMotor, Flywheel.SHOOT_VELOCITY);
   }
 }

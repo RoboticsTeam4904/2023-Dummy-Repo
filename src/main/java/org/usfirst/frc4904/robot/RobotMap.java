@@ -78,7 +78,7 @@ public class RobotMap {
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick); // Initialize Joystick object
 
         CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR); // Motor Controller
-        Motor flywheelMotor = new Motor("ShooterMotor", true, Component.flywheelTalon); // "Actual Motor" object
+        Motor flywheelMotor = new Motor("ShooterMotor", true, flywheelTalon); // "Actual Motor" object
         Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon); // flywheel subsystem
     }
 }
