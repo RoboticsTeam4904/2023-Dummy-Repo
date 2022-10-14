@@ -51,9 +51,11 @@ public class RobotMap {
     }
 
     public static class Component {
+        public static Flywheel flywheel
     }
 
     public static class Input {
+
     }
 
     public static class HumanInput {
@@ -70,5 +72,6 @@ public class RobotMap {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick);
 
+        
     }
 }

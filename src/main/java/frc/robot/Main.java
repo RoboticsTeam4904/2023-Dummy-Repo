@@ -13,7 +13,9 @@ import org.usfirst.frc4904.robot.Robot;
  * call.
  */
 public final class Main {
-  private Main() {}
+  private Main() {
+    
+  }
 
   /**
    * Main initialization function. Do not perform any initialization here.
