@@ -69,6 +69,9 @@ public class RobotMap {
     public RobotMap() {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick);
-
+        
+        CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR);
+        Motor flywheelMotor = new Motor("ShooterMotor", true, flywheelTalon);
+        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon);
     }
 }
