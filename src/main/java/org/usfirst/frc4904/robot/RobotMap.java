@@ -12,6 +12,8 @@ public class RobotMap {
         }
 
         public static class CANMotor {
+            public static final int FLYWHEEL_MOTOR = 8; 
+            public static final int port = 8;
         }
 
         public static class PWM {
@@ -51,6 +53,7 @@ public class RobotMap {
     }
 
     public static class Component {
+        public static Flywheel flywheel;
     }
 
     public static class Input {
