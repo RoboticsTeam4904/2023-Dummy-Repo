@@ -12,6 +12,7 @@ public class RobotMap {
         }
 
         public static class CANMotor {
+            public static final int FLYWHEEL_MOTOR = 8;
         }
 
         public static class PWM {
@@ -72,6 +73,8 @@ public class RobotMap {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick);
 
-        
+        CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR); // Motor Controller
+        Motor flywheelMotor = new Motor("ShooterMotor", true, Component.flywheelTalon); // "Actual Motor" object
+        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon); // flywheel subsystem
     }
 }
