@@ -1,8 +1,12 @@
 package org.usfirst.frc4904.robot;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
+
+import org.usfirst.frc4904.robot.subsystems.Flywheel;
 import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
 import org.usfirst.frc4904.standard.custom.controllers.CustomXbox;
+import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
+import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 
 public class RobotMap {
     public static class Port {
@@ -11,7 +15,9 @@ public class RobotMap {
 			public static final int xboxController = 1;
         }
 
-        public static class CANMotor {
+        public static class CANMotor { 
+            static public int FLYWHEEL_MOTOR = 8;
+
         }
 
         public static class PWM {
@@ -51,6 +57,7 @@ public class RobotMap {
     }
 
     public static class Component {
+        public static Flywheel flywheel;
     }
 
     public static class Input {
