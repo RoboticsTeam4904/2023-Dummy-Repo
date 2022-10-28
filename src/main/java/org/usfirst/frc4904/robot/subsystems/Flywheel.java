@@ -6,10 +6,7 @@
 package org.usfirst.frc4904.robot.subsystems;
 
 import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
-import org.usfirst.frc4904.standard.custom.sensors.CANTalonEncoder;
 import org.usfirst.frc4904.standard.subsystems.motor.Motor;
-import org.usfirst.frc4904.standard.subsystems.motor.PositionSensorMotor;
-import org.usfirst.frc4904.standard.subsystems.motor.VelocitySensorMotor;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
