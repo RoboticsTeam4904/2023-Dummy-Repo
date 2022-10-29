@@ -14,15 +14,16 @@ import org.usfirst.frc4904.standard.subsystems.motor.VelocitySensorMotor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Flywheel extends SubsystemBase {
-    public static final double SHOOT_VELOCITY = 0.1;
+    public double shoot_velocity;
     public CANTalonFX shooterEncoder;
     public Motor shooterMotor;
 
-    public Flywheel(String name, Motor shootorMotor, CANTalonFX shooterEncoder) {
+    public Flywheel(String name, Motor shootorMotor, CANTalonFX shooterEncoder, double shoot_velocity) {
         super();
         setName(name);
         this.shooterMotor = shootorMotor;
         this.shooterEncoder = shooterEncoder;
+        this.shoot_velocity = shoot_velocity;
     }
     
 }

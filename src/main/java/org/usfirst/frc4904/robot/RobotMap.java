@@ -79,6 +79,6 @@ public class RobotMap {
         
         CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR);
         Motor flywheelMotor = new Motor("ShooterMotor", true, flywheelTalon);
-        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon);
+        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon, 0.1);
     }
 }
