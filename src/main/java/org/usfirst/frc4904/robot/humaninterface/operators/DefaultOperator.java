@@ -18,7 +18,7 @@ public class DefaultOperator extends Operator {
 	@Override
 	public void bindCommands() {
 		RobotMap.HumanInput.Operator.joystick.button1.whenPressed(
-				new RunFor(new FlywheelCommand(5), 5)
+				new RunFor(new FlywheelCommand(.2), 5)
 		);
 	}
 }
