@@ -1,8 +1,7 @@
 package org.usfirst.frc4904.robot;
 
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
-import org.usfirst.frc4904.standard.custom.controllers.CustomXbox;
+
 import org.usfirst.frc4904.robot.subsystems.Flywheel;
 import org.usfirst.frc4904.standard.LogKitten;
 import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
@@ -14,12 +13,12 @@ public class RobotMap {
     public static class Port {
         public static class HumanInput {
             public static final int joystick = 0;
-			public static final int xboxController = 1;
-
+	        public static final int xboxController = 1;
         }
 
         public static class CANMotor {
-            public static final int FLYWHEEL_MOTOR = 8;
+            public static final int FLYWHEEL_MOTOR = 8; // TODO: set port
+
         }
 
         public static class PWM {
@@ -76,8 +75,11 @@ public class RobotMap {
     }
 
     public RobotMap() {
-        HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController);
-		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick);
+        HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController); // Initialize xbox controller object
+		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick); // Initialize Joystick object
 
+        CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR); // Motor Controller
+        Motor flywheelMotor = new Motor("ShooterMotor", true, flywheelTalon); // "Actual Motor" object
+        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon); // flywheel subsystem
     }
 }
