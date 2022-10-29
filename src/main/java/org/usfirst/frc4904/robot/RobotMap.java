@@ -20,7 +20,6 @@ public class RobotMap {
 
         public static class CANMotor {
             public static final int FLYWHEEL_MOTOR = 8;
-            public static final int port = 8;
         }
 
         public static class PWM {
