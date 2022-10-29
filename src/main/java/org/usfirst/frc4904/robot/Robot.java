@@ -16,6 +16,9 @@ public class Robot extends CommandRobotBase {
 
     @Override
     public void initialize() {
+        driverChooser.setDefaultOption(new NathanGain());
+        operatorChooser.setDefaultOption(new DefaultOperator());
+        LogKitten.wtf("initialize!");
     }
 
     @Override
