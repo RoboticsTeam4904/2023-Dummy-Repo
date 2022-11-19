@@ -1,8 +1,10 @@
 package org.usfirst.frc4904.robot.humaninterface.operators;
 
 import org.usfirst.frc4904.robot.RobotMap;
+import org.usfirst.frc4904.robot.RobotMap.HumanInput;
 import org.usfirst.frc4904.robot.commands.FlywheelConstant;
 import org.usfirst.frc4904.standard.humaninput.Operator;
+
 import org.usfirst.frc4904.standard.commands.RunFor;
 import org.usfirst.frc4904.standard.custom.controllers.CustomButton;
 import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
@@ -20,14 +22,15 @@ public class DefaultOperator extends Operator {
 
 	@Override
 	public void bindCommands() {
-		final CustomButton button2 = new CustomButton(RobotMap.HumanInput.Operator.joystick, 2);
+		final boolean b2_state = HumanInput.Operator.joystick.getRawButtonPressed(2);
+
 		if (is_b2_pressed == -1){
-			if (button2.currentState){
+			if (b2_state){
 				is_b2_pressed = 1;
 			}
 		}
 		if (is_b2_pressed == 0){
-			if (!button2.currentState){
+			if (!b2_state){
 				is_b2_pressed = -1;
 			}
 		}
