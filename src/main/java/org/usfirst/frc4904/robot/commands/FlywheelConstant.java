@@ -5,6 +5,7 @@ import org.usfirst.frc4904.robot.subsystems.Flywheel;
 import org.usfirst.frc4904.standard.LogKitten;
 import org.usfirst.frc4904.standard.commands.motor.MotorConstant;
 import org.usfirst.frc4904.standard.commands.motor.MotorVelocitySet;
+import org.usfirst.frc4904.standard.subsystems.motor.PositionSensorMotor;
 
 public class FlywheelConstant extends MotorConstant {
 

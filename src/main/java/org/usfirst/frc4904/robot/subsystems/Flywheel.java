@@ -5,23 +5,26 @@
 
 package org.usfirst.frc4904.robot.subsystems;
 
-import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
 import org.usfirst.frc4904.standard.custom.sensors.CANTalonEncoder;
-import org.usfirst.frc4904.standard.subsystems.motor.Motor;
 import org.usfirst.frc4904.standard.subsystems.motor.PositionSensorMotor;
-import org.usfirst.frc4904.standard.subsystems.motor.VelocitySensorMotor;
+import org.usfirst.frc4904.standard.LogKitten;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Flywheel extends SubsystemBase {
-    public static final double SHOOT_VELOCITY = 0.1; //TODO: Set value and ball reject velocity
-    public CANTalonFX shooterEncoder;
-    public Motor shooterMotor;
-    
-    public Flywheel(String name, Motor shooterMotor, CANTalonFX shooterEncoder) {
+    public static final double TICKS_PER_REVM = 2048;
+    public static final double RADIANS_PER_REV = 2 * Math.PI;
+    public static final double BIG_GEAR_RADIUS = 120;
+    public static final double SMALL_GEAR_RADIUS = 24;
+    public static final double MOTOR_REV_PER_TURRET_REV = BIG_GEAR_RADIUS/SMALL_GEAR_RADIUS;
+
+    public PositionSensorMotor motor;
+    public CANTalonEncoder encoder;
+
+    /** Creates a new Turret. */
+    public Flywheel(PositionSensorMotor motor, CANTalonEncoder encoder) {
         super();
-        setName(name);
-        this.shooterMotor = shooterMotor;
-        this.shooterEncoder = shooterEncoder;
+        this.motor = motor;
+        this.encoder = encoder;
     }
 }

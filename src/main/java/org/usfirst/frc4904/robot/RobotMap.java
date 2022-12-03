@@ -62,12 +62,13 @@ public class RobotMap {
             // public static final double dTolerance = -1;
 
         }
-
+    }
 
     public static class Component {
         public static CANTalonFX flywheelMotor;
         public static CustomPIDController flywheelPID;
         public static CANTalonEncoder flywheelEncoder;
+        public static Flywheel flywheel;
 
     }
 
@@ -86,16 +87,15 @@ public class RobotMap {
 
     public RobotMap() {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController); // Initialize xbox controller object
-		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick); // Initialize Joystick object
+        HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick); // Initialize Joystick object
 
         Component.flywheelMotor = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR);
         Component.flywheelEncoder = new CANTalonEncoder(Component.flywheelMotor);
         Component.flywheelPID = new CustomPIDController(PID.Turret.P,
                 PID.Turret.I, PID.Turret.D, PID.Turret.F,
                 Component.flywheelEncoder);
-        PositionSensorMotor flywheelPSM = new PositionSensorMotor("Turret", Component.turretPID, Component.turretMotor);
-        Component.turret = new Turret(turretPSM, Component.turretEncoder);
-        Component.flywheelMotor = new Flywheel(flywheelPSM, Component.flywheelEncoder);
+        PositionSensorMotor flywheelPSM = new  PositionSensorMotor("Flywheel", Component.flywheelPID, Component.flywheelMotor);
+        Component.flywheel = new Flywheel(flywheelPSM, Component.flywheelEncoder); // flywheel subsystem
 
     }
 }
