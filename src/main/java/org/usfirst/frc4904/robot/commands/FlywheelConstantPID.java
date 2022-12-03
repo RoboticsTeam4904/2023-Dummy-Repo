@@ -9,7 +9,7 @@ import org.usfirst.frc4904.standard.commands.motor.MotorPositionConstant;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class FlywheelConstantPID extends MotorPositionConstant {
-	public FlywheelConstantPID(double turretRadians) {
+	public FlywheelConstantPID(Flywheel flywheel, double turretRadians) {
 		// Restrain position set to be within one turret rotation, reverse to other side if needed
 		// final double pos =;                    // encoder ticks
 
@@ -21,7 +21,7 @@ public class FlywheelConstantPID extends MotorPositionConstant {
 
 	@Override
 	public boolean isFinished() {
-		if (RobotMap.Component.turret.turretEncoder.getFwdLimitSwitchClosed() == 1 || RobotMap.Component.turret.turretEncoder.getRevLimitSwitchClosed() == 1) {
+		if (RobotMap.Component.flywheelEncoder.getFwdLimitSwitchClosed() == 1 || RobotMap.Component.flywheelEncoder.getRevLimitSwitchClosed() == 1) {
 			return true;
 		}
 		if(super.isFinished()) LogKitten.wtf("turret command end");
