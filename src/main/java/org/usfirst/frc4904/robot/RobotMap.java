@@ -8,6 +8,10 @@ import org.usfirst.frc4904.standard.custom.controllers.CustomJoystick;
 import org.usfirst.frc4904.standard.custom.controllers.CustomXbox;
 import org.usfirst.frc4904.standard.custom.motioncontrollers.CANTalonFX;
 import org.usfirst.frc4904.standard.subsystems.motor.Motor;
+import org.usfirst.frc4904.standard.subsystems.motor.PositionSensorMotor;
+import org.usfirst.frc4904.standard.custom.motioncontrollers.CustomPIDController;
+import org.usfirst.frc4904.standard.custom.sensors.CANTalonEncoder;
+
 
 public class RobotMap {
     public static class Port {
@@ -49,16 +53,22 @@ public class RobotMap {
     }
 
     public static class PID {
-        public static class Drive {
+        public static class Turret {
+            public static final double P = 0; // TODO: TUNE (6e-5)
+            public static final double I = 0; // 3E-8
+            public static final double D = 0; // (2e-6)
+            public static final double F = 0;
+            // public static final double tolerance = -1;
+            // public static final double dTolerance = -1;
+
         }
 
-        public static class Turn {
-        }
-
-    }
 
     public static class Component {
-        public static Flywheel flywheel;
+        public static CANTalonFX flywheelMotor;
+        public static CustomPIDController flywheelPID;
+        public static CANTalonEncoder flywheelEncoder;
+
     }
 
     public static class Input {
@@ -78,8 +88,14 @@ public class RobotMap {
         HumanInput.Driver.xbox = new CustomXbox(Port.HumanInput.xboxController); // Initialize xbox controller object
 		HumanInput.Operator.joystick = new CustomJoystick(Port.HumanInput.joystick); // Initialize Joystick object
 
-        CANTalonFX flywheelTalon = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR); // Motor Controller
-        Motor flywheelMotor = new Motor("ShooterMotor", true, flywheelTalon); // "Actual Motor" object
-        Component.flywheel = new Flywheel("Shooter", flywheelMotor, flywheelTalon); // flywheel subsystem
+        Component.flywheelMotor = new CANTalonFX(Port.CANMotor.FLYWHEEL_MOTOR);
+        Component.flywheelEncoder = new CANTalonEncoder(Component.flywheelMotor);
+        Component.flywheelPID = new CustomPIDController(PID.Turret.P,
+                PID.Turret.I, PID.Turret.D, PID.Turret.F,
+                Component.flywheelEncoder);
+        PositionSensorMotor flywheelPSM = new PositionSensorMotor("Turret", Component.turretPID, Component.turretMotor);
+        Component.turret = new Turret(turretPSM, Component.turretEncoder);
+        Component.flywheelMotor = new Flywheel(flywheelPSM, Component.flywheelEncoder);
+
     }
 }
