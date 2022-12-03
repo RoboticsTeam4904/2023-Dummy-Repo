@@ -25,6 +25,7 @@ public class RobotMap {
         }
 
         public static class Digital {
+            
         }
     }
 
