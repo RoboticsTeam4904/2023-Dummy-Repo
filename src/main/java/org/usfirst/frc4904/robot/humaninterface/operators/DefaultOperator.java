@@ -25,18 +25,18 @@ public class DefaultOperator extends Operator {
 		final boolean b2_state = HumanInput.Operator.joystick.getRawButtonPressed(2);
 
 		if (is_b2_pressed == -1){
-			if (b2_state){
+			if (b2_state == true){
 				is_b2_pressed = 1;
 			}
 		}
 		if (is_b2_pressed == 0){
-			if (!b2_state){
+			if (b2_state == false){
 				is_b2_pressed = -1;
 			}
 		}
 		
 		if (is_b2_pressed == 1){
-			if (this.toggle){
+			if (this.toggle == true){
 				RobotMap.Component.flywheel.shoot_velocity = 0.3;
 				this.toggle = false;
 			} else{
